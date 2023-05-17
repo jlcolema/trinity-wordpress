@@ -18,6 +18,13 @@
 			"title": "Blog (Alternative)"
 		},
 		{
+			"name": "landing-page",
+			"postTypes": [
+				"page"
+			],
+			"title": "Landing Page"
+		},
+		{
 			"name": "404",
 			"postTypes": [
 				"page"
