@@ -46,6 +46,8 @@ logs/
 # Title
 
 *.code-workspace
+.vscode/
+package-lock.json
 
 # Ignore OS generated files
 
