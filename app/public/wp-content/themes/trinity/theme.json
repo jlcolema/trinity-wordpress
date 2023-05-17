@@ -25,6 +25,13 @@
 			"title": "Landing Page"
 		},
 		{
+			"name": "single-company",
+			"postTypes": [
+				"post"
+			],
+			"title": "Single Company"
+		},
+		{
 			"name": "404",
 			"postTypes": [
 				"page"
