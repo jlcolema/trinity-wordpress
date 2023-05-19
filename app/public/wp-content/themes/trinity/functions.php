@@ -13,15 +13,7 @@
  *
  * 01. General Setup
  * 02. Enqueue Scripts and Styles
- * 05. Register Menus
- * 06. Custom Logo
- * 07. WP Body Open
- * 08. Register Sidebars
- * 09. Enqueue Block Editor Assets
- * 10. Enqueue Classic Editor Styles
- * 11. Block Editor Settings
- * 12. Advanced Custom Fields
- *
+ * 03. Advanced Custom Fields
  */
 
 if ( ! function_exists( 'trinity_setup' ) ) {
@@ -120,3 +112,47 @@ function trinity_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'trinity_scripts' );
+
+/**
+ * 03. Advanced Custom Fields
+ *
+ * A description of the section.
+ *
+ * @since Trinity 1.0
+ *
+ * @return void
+ */
+
+if ( function_exists( 'acf_add_options_page' ) ) {
+
+	// Register a Globals menu item.
+	acf_add_options_page( array(
+		'page_title' => 'Globals',
+		'menu_title' => 'Globals',
+		'menu_slug'	 => 'globals',
+		'capability' => 'edit_posts',
+		'redirect'	 => true
+	));
+
+	// Register a submenu item within Globals for About.
+	acf_add_options_sub_page( array(
+		'page_title'  => 'About',
+		'menu_title'  => 'About',
+		'parent_slug' => 'globals'
+	));
+
+	// Register a submenu item within Globals for Contact Information.
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Contact Information',
+		'menu_title'  => 'Contact Information',
+		'parent_slug' => 'globals'
+	));
+
+	// Register a submenu item within Globals for Footer.
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Footer',
+		'menu_title'  => 'Footer',
+		'parent_slug' => 'globals'
+	));
+
+}
