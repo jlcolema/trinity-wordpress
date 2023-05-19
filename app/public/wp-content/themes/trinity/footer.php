@@ -25,7 +25,7 @@
 
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-current="page" data-current="true" class="emblem__link">
 
-					<img src="/assets/img/emblem.png" srcset="/assets/img/emblem.png, /assets/img/emblem@2x.png 2x" width="40" height="47" alt="<?php bloginfo( 'name' ); ?>" class="emblem__image" />
+					<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/emblem.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/emblem.png, <?php bloginfo( 'template_directory' ); ?>/assets/img/emblem@2x.png 2x" width="40" height="47" alt="<?php bloginfo( 'name' ); ?>" class="emblem__image" />
 
 				</a>
 
