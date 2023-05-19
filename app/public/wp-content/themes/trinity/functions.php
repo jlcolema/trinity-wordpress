@@ -120,6 +120,3 @@ function trinity_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'trinity_scripts' );
-
-// Enhance the theme by hooking into WordPress.
-require get_template_directory() . '/inc/template-functions.php';
