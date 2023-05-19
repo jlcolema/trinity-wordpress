@@ -129,21 +129,5 @@ function trinity_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'trinity_scripts' );
 
-/**
- * Enqueue non-latin language styles.
- *
- * @since Trinity 1.0
- *
- * @return void
- */
-function trinity_non_latin_languages() {
-	$custom_css = trinity_get_non_latin_css( 'front-end' );
-
-	if ( $custom_css ) {
-		wp_add_inline_style( 'trinity-style', $custom_css );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
-
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
