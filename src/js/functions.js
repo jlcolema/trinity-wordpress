@@ -24,18 +24,18 @@ glideHero.mount();
 
 // Register our service-worker
 
-if (navigator.serviceWorker) {
+// if (navigator.serviceWorker) {
 
-	window.addEventListener('load', function() {
+// 	window.addEventListener('load', function() {
 
-		navigator.serviceWorker.register('/service-worker.js', {
-			scope: '/'
-		});
+// 		navigator.serviceWorker.register('/service-worker.js', {
+// 			scope: '/'
+// 		});
 
-		if (navigator.serviceWorker.controller) {
-			navigator.serviceWorker.controller.postMessage({'command': 'trimCaches'});
-		}
+// 		if (navigator.serviceWorker.controller) {
+// 			navigator.serviceWorker.controller.postMessage({'command': 'trimCaches'});
+// 		}
 
-	});
+// 	});
 
-}
+// }

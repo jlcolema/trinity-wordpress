@@ -1,0 +1,25 @@
+{
+	"lang": "en",
+	"short_name": "Trinity Landing Page",
+	"name": "Trinity Insight Landing Page",
+	"description": "Trinity Insight",
+	"dir": "ltr",
+	"icons": [
+		{
+			"src": "assets/img/icon-192.png",
+			"type": "image/png",
+			"sizes": "192x192",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "assets/img/icon-512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "any maskable"
+		}
+	],
+	"start_url": "/",
+	"display": "minimal-ui",
+	"background_color": "#ffffff",
+	"theme_color": "#ffffff"
+}
