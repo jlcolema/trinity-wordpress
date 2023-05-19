@@ -115,8 +115,6 @@ add_action( 'after_setup_theme', 'trinity_setup' );
 
 function trinity_scripts() {
 
-	global $wp_scripts;
-
 	// Use the standard stylesheet.
 	wp_enqueue_style( 'trinity-style', get_template_directory_uri() . '/assets/css/styles.css', array(), wp_get_theme()->get( 'Version' ) );
 
