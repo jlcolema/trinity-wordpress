@@ -2281,7 +2281,7 @@ html {
 body {
 	--wp--typography--line-height: var(--global--line-height-body);
 	color: var(--global--color-primary);
-	background-color: var(--global--color-background);
+	/* background-color: var(--global--color-background); */
 	font-family: var(--global--font-secondary);
 	font-size: var(--global--font-size-base);
 	font-weight: normal;
