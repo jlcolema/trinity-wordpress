@@ -149,28 +149,6 @@ add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
- * Calculate classes for the main <html> element.
- *
- * @since Trinity 1.0
- *
- * @return void
- */
-function trinity_the_html_classes() {
-	/**
-	 * Filters the classes for the main <html> element.
-	 *
-	 * @since Trinity 1.0
-	 *
-	 * @param string The list of classes. Default empty string.
-	 */
-	$classes = apply_filters( 'trinity_html_classes', '' );
-	if ( ! $classes ) {
-		return;
-	}
-	echo 'class="' . esc_attr( $classes ) . '"';
-}
-
-/**
  * Add "is-IE" class to body if the user is on Internet Explorer.
  *
  * @since Trinity 1.0
