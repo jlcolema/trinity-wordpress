@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Functions and definitions
  *
@@ -7,6 +8,22 @@
  * @package WordPress
  * @subpackage Trinity
  * @since Trinity 1.0
+ *
+ * Table of Contents:
+ *
+ * 01. Theme Support
+ * 02. Required Files
+ * 03. Register Styles
+ * 04. Register Scripts
+ * 05. Register Menus
+ * 06. Custom Logo
+ * 07. WP Body Open
+ * 08. Register Sidebars
+ * 09. Enqueue Block Editor Assets
+ * 10. Enqueue Classic Editor Styles
+ * 11. Block Editor Settings
+ * 12. Advanced Custom Fields
+ *
  */
 
 // This theme requires WordPress 5.3 or later.
