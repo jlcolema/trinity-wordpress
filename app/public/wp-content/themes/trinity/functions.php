@@ -148,9 +148,6 @@ add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
 
-// Block Patterns.
-require get_template_directory() . '/inc/block-patterns.php';
-
 // Block Styles.
 require get_template_directory() . '/inc/block-styles.php';
 
