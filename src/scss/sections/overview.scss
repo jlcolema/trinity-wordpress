@@ -65,14 +65,21 @@
 
 			.section__description {
 
-				margin: 0;
 				font-size: 1.25rem; // 20px
 				line-height: 1.3; // 26px
 				color: var(--color-monotone-white);
 
-				b {
-					text-transform: uppercase;
+				p {
+
+					&:last-of-type {
+						margin: 0;
+					}
+
 				}
+
+					b {
+						text-transform: uppercase;
+					}
 
 			}
 
