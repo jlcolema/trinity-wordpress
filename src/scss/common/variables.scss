@@ -1,0 +1,68 @@
+// ------------------------------
+// Common: Variables
+// ------------------------------
+
+// Notes...
+
+:root {
+
+	// Colors
+	// ------------------------------
+
+	// Monotone
+
+	--color-monotone-black: #000000;
+	--color-monotone-white: #ffffff;
+
+	--color-monotone-10: #e6e6e6;
+	--color-monotone-20: #cbcbcb;
+	--color-monotone-30: #b4b4b4;
+	--color-monotone-40: #9a9a9a;
+	--color-monotone-50: #808080;
+	--color-monotone-60: #656565;
+	--color-monotone-70: #4d4d4d;
+	--color-monotone-80: #333333;
+	--color-monotone-90: #191919;
+
+	// Theme
+
+	--color-theme-blue:		  #2d394a; // #2d394a
+	--color-theme-dark-blue:  #232e3e; // #232e3e
+	--color-theme-light-blue: #a2b9c2; // #a2b9c2
+	--color-theme-magenta:	  #ce427a; // #ce427a
+	--color-theme-gray:		  #979797; // #979797
+	--color-theme-dark-gray:  #454545; // #454545
+	--color-theme-aqua:		  #a1d9d3; // #a1d9d3
+	--color-theme-salmon:	  #ed9e98; // #ed9e98
+
+	// Branding
+
+	--color-branding-primary: var(--color-theme-blue);
+	--color-branding-accent: var(--color-theme-magenta);
+
+	// Text
+
+	--color-text-heading: var(--color-theme-blue);
+	--color-text-body: var(--color-theme-dark-gray);
+
+	// Construction (for Development)
+
+	--color-construction-primary: rgba(255, 192, 203, 0.75);
+	--color-construction-secondary: rgba(192, 255, 204, 0.75);
+	--color-construction-tertiary: rgba(192, 211, 255, 0.75);
+
+	// Typography
+	// ------------------------------
+
+	--font-family-heading: 'Playfair Display', 'Times New Roman', Times, serif;
+	--font-family-body: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+}
+
+// Example of a dark scheme in use.
+
+@media (prefers-color-scheme: dark) {
+
+	// :root {}
+
+}

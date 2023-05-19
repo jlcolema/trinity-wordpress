@@ -1,0 +1,34 @@
+// ------------------------------
+// Layouts: Main
+// ------------------------------
+
+// Notes...
+
+.main {
+
+	padding: 0.125rem 0 2rem 0; // 2px 0 32px 0
+	// background-color: var(--color-construction-secondary);
+
+	@media (min-width: 43.75rem) {
+		padding: 0.125rem 0 4rem 0; //2px 0 80px 0
+	}
+
+	@media (min-width: 56.25rem) {
+		padding: 1.875rem 0 5rem 0; // 30px 0 80px 0
+	}
+
+}
+
+	.main__wrap {
+		width: min(90vw, 82rem);
+		margin-inline: auto;
+		// background-color: var(--color-construction-secondary);
+	}
+
+		.section {}
+
+			.section__header {}
+
+				.section__heading {}
+
+				.section__description {}

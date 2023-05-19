@@ -1,0 +1,111 @@
+// ------------------------------
+// Sections: Together
+// ------------------------------
+
+// Notes...
+
+.section__together {
+
+	margin: 2rem 0 0 0; // 32px 0 0 0
+	padding: 0.8125rem 0 0 0; // 13px 0 0 0
+	border-top: 0.0625rem solid var(--color-theme-light-blue);
+	// background-color: var(--color-construction-tertiary);
+
+	@media (min-width: 56.25rem) {
+		margin: 4.875rem 0 0 0; // 78px 0 0 0
+		padding: 3.0625rem 0 0 0; // 49px 0 0 0
+	}
+
+	.section__header {
+
+		margin: 0 0 1.5rem 0; // 0 0 24px 0
+
+		@media (min-width: 56.25rem) {
+			margin: 0 0 2.75rem 0; // 0 0 44px 0
+		}
+
+	}
+
+		.section__heading {
+
+			font-size: 1.375rem; // 22px
+			line-height: 1.3636363636; // 30px
+			text-align: center;
+
+			@media (min-width: 56.25rem) {
+				font-size: 2.25rem; // 36px
+				line-height: 1.3333333333; // 48px
+			}
+
+		}
+
+}
+
+	.together__list {
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem; // 16px
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: together-item;
+
+		@media (min-width: 43.75rem) {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: stretch;
+			gap: 1.25rem; // 20px
+		}
+
+	}
+
+		.together__item {
+
+			max-width: 26.5rem;
+			margin: 0;
+			background-color: var(--color-monotone-white);
+			border-radius: 0.4375rem; // 7px
+			box-shadow: 0 0.625rem 1.25rem 0 rgba(0, 0, 0, 0.20); // 0 10px 20px 0
+			counter-increment: together-item;
+			overflow: hidden;
+
+			@media (min-width: 43.75rem) {
+				width: 33.3333333333%;
+				max-width: none;
+			}
+
+		}
+
+			.together__image {
+				background: var(--color-theme-salmon);
+			}
+
+			.together__detail {
+
+				padding: 1rem 1rem 1.375rem 1rem; // 16px 16px 22px 16px
+				text-align: center;
+
+				@media (min-width: 56.25rem) {
+					padding: 1.5625rem 1rem 1.375rem 1rem; // 25px 16px 22px 16px
+				}
+
+			}
+
+				.together__heading {
+
+					margin: 0;
+					font-size: 1rem; // 16px
+					line-height: 1.5625; // 25px
+					letter-spacing: normal;
+
+					&:before {
+						content: counter(together-item) '. ';
+					}
+
+				}
+
+				.together__description {
+					margin: 0.5rem 0 0 0; // 0.5rem 0 0 0
+				}
