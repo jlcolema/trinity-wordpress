@@ -3,19 +3,19 @@
  * Functions which enhance the theme by hooking into WordPress
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
+ * @subpackage Trinity
+ * @since Trinity 1.0
  */
 
 /**
  * Adds custom classes to the array of body classes.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @param array $classes Classes for the body element.
  * @return array
  */
-function twenty_twenty_one_body_classes( $classes ) {
+function trinity_body_classes( $classes ) {
 
 	// Helps detect if JS is enabled or not.
 	$classes[] = 'no-js';
@@ -35,83 +35,83 @@ function twenty_twenty_one_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'twenty_twenty_one_body_classes' );
+add_filter( 'body_class', 'trinity_body_classes' );
 
 /**
  * Adds custom class to the array of posts classes.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @param array $classes An array of CSS classes.
  * @return array
  */
-function twenty_twenty_one_post_classes( $classes ) {
+function trinity_post_classes( $classes ) {
 	$classes[] = 'entry';
 
 	return $classes;
 }
-add_filter( 'post_class', 'twenty_twenty_one_post_classes', 10, 3 );
+add_filter( 'post_class', 'trinity_post_classes', 10, 3 );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @return void
  */
-function twenty_twenty_one_pingback_header() {
+function trinity_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
-add_action( 'wp_head', 'twenty_twenty_one_pingback_header' );
+add_action( 'wp_head', 'trinity_pingback_header' );
 
 /**
  * Remove the `no-js` class from body if JS is supported.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @return void
  */
-function twenty_twenty_one_supports_js() {
+function trinity_supports_js() {
 	echo '<script>document.body.classList.remove("no-js");</script>';
 }
-add_action( 'wp_footer', 'twenty_twenty_one_supports_js' );
+add_action( 'wp_footer', 'trinity_supports_js' );
 
 /**
  * Changes comment form default fields.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @param array $defaults The form defaults.
  * @return array
  */
-function twenty_twenty_one_comment_form_defaults( $defaults ) {
+function trinity_comment_form_defaults( $defaults ) {
 
 	// Adjust height of comment form.
 	$defaults['comment_field'] = preg_replace( '/rows="\d+"/', 'rows="5"', $defaults['comment_field'] );
 
 	return $defaults;
 }
-add_filter( 'comment_form_defaults', 'twenty_twenty_one_comment_form_defaults' );
+add_filter( 'comment_form_defaults', 'trinity_comment_form_defaults' );
 
 /**
  * Determines if post thumbnail can be displayed.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @return bool
  */
-function twenty_twenty_one_can_show_post_thumbnail() {
+function trinity_can_show_post_thumbnail() {
 	/**
 	 * Filters whether post thumbnail can be displayed.
 	 *
-	 * @since Twenty Twenty-One 1.0
+	 * @since Trinity 1.0
 	 *
 	 * @param bool $show_post_thumbnail Whether to show post thumbnail.
 	 */
 	return apply_filters(
-		'twenty_twenty_one_can_show_post_thumbnail',
+		'trinity_can_show_post_thumbnail',
 		! post_password_required() && ! is_attachment() && has_post_thumbnail()
 	);
 }
@@ -119,23 +119,23 @@ function twenty_twenty_one_can_show_post_thumbnail() {
 /**
  * Returns the size for avatars used in the theme.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @return int
  */
-function twenty_twenty_one_get_avatar_size() {
+function trinity_get_avatar_size() {
 	return 60;
 }
 
 /**
  * Creates continue reading text.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  */
-function twenty_twenty_one_continue_reading_text() {
+function trinity_continue_reading_text() {
 	$continue_reading = sprintf(
 		/* translators: %s: Post title. Only visible to screen readers. */
-		esc_html__( 'Continue reading %s', 'twentytwentyone' ),
+		esc_html__( 'Continue reading %s', 'trinity' ),
 		the_title( '<span class="screen-reader-text">', '</span>', false )
 	);
 
@@ -145,86 +145,86 @@ function twenty_twenty_one_continue_reading_text() {
 /**
  * Creates the continue reading link for excerpt.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  */
-function twenty_twenty_one_continue_reading_link_excerpt() {
+function trinity_continue_reading_link_excerpt() {
 	if ( ! is_admin() ) {
-		return '&hellip; <a class="more-link" href="' . esc_url( get_permalink() ) . '">' . twenty_twenty_one_continue_reading_text() . '</a>';
+		return '&hellip; <a class="more-link" href="' . esc_url( get_permalink() ) . '">' . trinity_continue_reading_text() . '</a>';
 	}
 }
 
 // Filter the excerpt more link.
-add_filter( 'excerpt_more', 'twenty_twenty_one_continue_reading_link_excerpt' );
+add_filter( 'excerpt_more', 'trinity_continue_reading_link_excerpt' );
 
 /**
  * Creates the continue reading link.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  */
-function twenty_twenty_one_continue_reading_link() {
+function trinity_continue_reading_link() {
 	if ( ! is_admin() ) {
-		return '<div class="more-link-container"><a class="more-link" href="' . esc_url( get_permalink() ) . '#more-' . esc_attr( get_the_ID() ) . '">' . twenty_twenty_one_continue_reading_text() . '</a></div>';
+		return '<div class="more-link-container"><a class="more-link" href="' . esc_url( get_permalink() ) . '#more-' . esc_attr( get_the_ID() ) . '">' . trinity_continue_reading_text() . '</a></div>';
 	}
 }
 
 // Filter the content more link.
-add_filter( 'the_content_more_link', 'twenty_twenty_one_continue_reading_link' );
+add_filter( 'the_content_more_link', 'trinity_continue_reading_link' );
 
-if ( ! function_exists( 'twenty_twenty_one_post_title' ) ) {
+if ( ! function_exists( 'trinity_post_title' ) ) {
 	/**
 	 * Adds a title to posts and pages that are missing titles.
 	 *
-	 * @since Twenty Twenty-One 1.0
+	 * @since Trinity 1.0
 	 *
 	 * @param string $title The title.
 	 * @return string
 	 */
-	function twenty_twenty_one_post_title( $title ) {
-		return '' === $title ? esc_html_x( 'Untitled', 'Added to posts and pages that are missing titles', 'twentytwentyone' ) : $title;
+	function trinity_post_title( $title ) {
+		return '' === $title ? esc_html_x( 'Untitled', 'Added to posts and pages that are missing titles', 'trinity' ) : $title;
 	}
 }
-add_filter( 'the_title', 'twenty_twenty_one_post_title' );
+add_filter( 'the_title', 'trinity_post_title' );
 
 /**
  * Gets the SVG code for a given icon.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @param string $group The icon group.
  * @param string $icon  The icon.
  * @param int    $size  The icon size in pixels.
  * @return string
  */
-function twenty_twenty_one_get_icon_svg( $group, $icon, $size = 24 ) {
-	return Twenty_Twenty_One_SVG_Icons::get_svg( $group, $icon, $size );
+function trinity_get_icon_svg( $group, $icon, $size = 24 ) {
+	return Trinity_SVG_Icons::get_svg( $group, $icon, $size );
 }
 
 /**
  * Changes the default navigation arrows to svg icons
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @param string $calendar_output The generated HTML of the calendar.
  * @return string
  */
-function twenty_twenty_one_change_calendar_nav_arrows( $calendar_output ) {
-	$calendar_output = str_replace( '&laquo; ', is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' ), $calendar_output );
-	$calendar_output = str_replace( ' &raquo;', is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' ), $calendar_output );
+function trinity_change_calendar_nav_arrows( $calendar_output ) {
+	$calendar_output = str_replace( '&laquo; ', is_rtl() ? trinity_get_icon_svg( 'ui', 'arrow_right' ) : trinity_get_icon_svg( 'ui', 'arrow_left' ), $calendar_output );
+	$calendar_output = str_replace( ' &raquo;', is_rtl() ? trinity_get_icon_svg( 'ui', 'arrow_left' ) : trinity_get_icon_svg( 'ui', 'arrow_right' ), $calendar_output );
 	return $calendar_output;
 }
-add_filter( 'get_calendar', 'twenty_twenty_one_change_calendar_nav_arrows' );
+add_filter( 'get_calendar', 'trinity_change_calendar_nav_arrows' );
 
 /**
  * Get custom CSS.
  *
  * Return CSS for non-latin language, if available, or null
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @param string $type Whether to return CSS for the "front-end", "block-editor", or "classic-editor".
  * @return string
  */
-function twenty_twenty_one_get_non_latin_css( $type = 'front-end' ) {
+function trinity_get_non_latin_css( $type = 'front-end' ) {
 
 	// Fetch site locale.
 	$locale = get_bloginfo( 'language' );
@@ -232,12 +232,12 @@ function twenty_twenty_one_get_non_latin_css( $type = 'front-end' ) {
 	/**
 	 * Filters the fallback fonts for non-latin languages.
 	 *
-	 * @since Twenty Twenty-One 1.0
+	 * @since Trinity 1.0
 	 *
 	 * @param array $font_family An array of locales and font families.
 	 */
 	$font_family = apply_filters(
-		'twenty_twenty_one_get_localized_font_family_types',
+		'trinity_get_localized_font_family_types',
 		array(
 
 			// Arabic.
@@ -308,12 +308,12 @@ function twenty_twenty_one_get_non_latin_css( $type = 'front-end' ) {
 	/**
 	 * Filters the elements to apply fallback fonts to.
 	 *
-	 * @since Twenty Twenty-One 1.0
+	 * @since Trinity 1.0
 	 *
 	 * @param array $elements An array of elements for "front-end", "block-editor", or "classic-editor".
 	 */
 	$elements = apply_filters(
-		'twenty_twenty_one_get_localized_font_family_elements',
+		'trinity_get_localized_font_family_elements',
 		array(
 			'front-end'      => array( 'body', 'input', 'textarea', 'button', '.button', '.faux-button', '.wp-block-button__link', '.wp-block-file__button', '.has-drop-cap:not(:focus)::first-letter', '.entry-content .wp-block-archives', '.entry-content .wp-block-categories', '.entry-content .wp-block-cover-image', '.entry-content .wp-block-latest-comments', '.entry-content .wp-block-latest-posts', '.entry-content .wp-block-pullquote', '.entry-content .wp-block-quote.is-large', '.entry-content .wp-block-quote.is-style-large', '.entry-content .wp-block-archives *', '.entry-content .wp-block-categories *', '.entry-content .wp-block-latest-posts *', '.entry-content .wp-block-latest-comments *', '.entry-content p', '.entry-content ol', '.entry-content ul', '.entry-content dl', '.entry-content dt', '.entry-content cite', '.entry-content figcaption', '.entry-content .wp-caption-text', '.comment-content p', '.comment-content ol', '.comment-content ul', '.comment-content dl', '.comment-content dt', '.comment-content cite', '.comment-content figcaption', '.comment-content .wp-caption-text', '.widget_text p', '.widget_text ol', '.widget_text ul', '.widget_text dl', '.widget_text dt', '.widget-content .rssSummary', '.widget-content cite', '.widget-content figcaption', '.widget-content .wp-caption-text' ),
 			'block-editor'   => array( '.editor-styles-wrapper > *', '.editor-styles-wrapper p', '.editor-styles-wrapper ol', '.editor-styles-wrapper ul', '.editor-styles-wrapper dl', '.editor-styles-wrapper dt', '.editor-post-title__block .editor-post-title__input', '.editor-styles-wrapper .wp-block h1', '.editor-styles-wrapper .wp-block h2', '.editor-styles-wrapper .wp-block h3', '.editor-styles-wrapper .wp-block h4', '.editor-styles-wrapper .wp-block h5', '.editor-styles-wrapper .wp-block h6', '.editor-styles-wrapper .has-drop-cap:not(:focus)::first-letter', '.editor-styles-wrapper cite', '.editor-styles-wrapper figcaption', '.editor-styles-wrapper .wp-caption-text' ),
@@ -327,12 +327,12 @@ function twenty_twenty_one_get_non_latin_css( $type = 'front-end' ) {
 	}
 
 	// Include file if function doesn't exist.
-	if ( ! function_exists( 'twenty_twenty_one_generate_css' ) ) {
+	if ( ! function_exists( 'trinity_generate_css' ) ) {
 		require_once get_theme_file_path( 'inc/custom-css.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	// Return the specified styles.
-	return twenty_twenty_one_generate_css( // @phpstan-ignore-line.
+	return trinity_generate_css( // @phpstan-ignore-line.
 		implode( ',', $elements[ $type ] ),
 		'font-family',
 		implode( ',', $font_family[ $locale ] ),
@@ -345,7 +345,7 @@ function twenty_twenty_one_get_non_latin_css( $type = 'front-end' ) {
 /**
  * Print the first instance of a block in the content, and then break away.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @param string      $block_name The full block type name, or a partial match.
  *                                Example: `core/image`, `core-embed/*`.
@@ -353,7 +353,7 @@ function twenty_twenty_one_get_non_latin_css( $type = 'front-end' ) {
  * @param int         $instances  How many instances of the block will be printed (max). Default  1.
  * @return bool Returns true if a block was located & printed, otherwise false.
  */
-function twenty_twenty_one_print_first_instance_of_block( $block_name, $content = null, $instances = 1 ) {
+function trinity_print_first_instance_of_block( $block_name, $content = null, $instances = 1 ) {
 	$instances_count = 0;
 	$blocks_content  = '';
 
@@ -408,29 +408,29 @@ function twenty_twenty_one_print_first_instance_of_block( $block_name, $content 
 /**
  * Retrieve protected post password form content.
  *
- * @since Twenty Twenty-One 1.0
- * @since Twenty Twenty-One 1.4 Corrected parameter name for `$output`,
+ * @since Trinity 1.0
+ * @since Trinity 1.4 Corrected parameter name for `$output`,
  *                              added the `$post` parameter.
  *
  * @param string      $output The password form HTML output.
  * @param int|WP_Post $post   Optional. Post ID or WP_Post object. Default is global $post.
  * @return string HTML content for password form for password protected post.
  */
-function twenty_twenty_one_password_form( $output, $post = 0 ) {
+function trinity_password_form( $output, $post = 0 ) {
 	$post   = get_post( $post );
 	$label  = 'pwbox-' . ( empty( $post->ID ) ? wp_rand() : $post->ID );
-	$output = '<p class="post-password-message">' . esc_html__( 'This content is password protected. Please enter a password to view.', 'twentytwentyone' ) . '</p>
+	$output = '<p class="post-password-message">' . esc_html__( 'This content is password protected. Please enter a password to view.', 'trinity' ) . '</p>
 	<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form" method="post">
-	<label class="post-password-form__label" for="' . esc_attr( $label ) . '">' . esc_html_x( 'Password', 'Post password form', 'twentytwentyone' ) . '</label><input class="post-password-form__input" name="post_password" id="' . esc_attr( $label ) . '" type="password" spellcheck="false" size="20" /><input type="submit" class="post-password-form__submit" name="' . esc_attr_x( 'Submit', 'Post password form', 'twentytwentyone' ) . '" value="' . esc_attr_x( 'Enter', 'Post password form', 'twentytwentyone' ) . '" /></form>
+	<label class="post-password-form__label" for="' . esc_attr( $label ) . '">' . esc_html_x( 'Password', 'Post password form', 'trinity' ) . '</label><input class="post-password-form__input" name="post_password" id="' . esc_attr( $label ) . '" type="password" spellcheck="false" size="20" /><input type="submit" class="post-password-form__submit" name="' . esc_attr_x( 'Submit', 'Post password form', 'trinity' ) . '" value="' . esc_attr_x( 'Enter', 'Post password form', 'trinity' ) . '" /></form>
 	';
 	return $output;
 }
-add_filter( 'the_password_form', 'twenty_twenty_one_password_form', 10, 2 );
+add_filter( 'the_password_form', 'trinity_password_form', 10, 2 );
 
 /**
  * Filters the list of attachment image attributes.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @param string[]     $attr       Array of attribute values for the image markup, keyed by attribute name.
  *                                 See wp_get_attachment_image().
@@ -439,7 +439,7 @@ add_filter( 'the_password_form', 'twenty_twenty_one_password_form', 10, 2 );
  *                                 an array of width and height values in pixels (in that order).
  * @return string[] The filtered attributes for the image markup.
  */
-function twenty_twenty_one_get_attachment_image_attributes( $attr, $attachment, $size ) {
+function trinity_get_attachment_image_attributes( $attr, $attachment, $size ) {
 
 	if ( is_admin() ) {
 		return $attr;
@@ -472,4 +472,4 @@ function twenty_twenty_one_get_attachment_image_attributes( $attr, $attachment, 
 
 	return $attr;
 }
-add_filter( 'wp_get_attachment_image_attributes', 'twenty_twenty_one_get_attachment_image_attributes', 10, 3 );
+add_filter( 'wp_get_attachment_image_attributes', 'trinity_get_attachment_image_attributes', 10, 3 );

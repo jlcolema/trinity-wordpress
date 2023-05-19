@@ -6,9 +6,9 @@
  * 		Removed the hue picker script because we don't use it here
  * 		Added the "palettes" argument in wpColorPicker().
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  */
-wp.customize.controlConstructor['twenty-twenty-one-color'] = wp.customize.Control.extend( {
+wp.customize.controlConstructor['trinity-color'] = wp.customize.Control.extend( {
 	ready: function() {
 		var control = this,
 			updating = false,

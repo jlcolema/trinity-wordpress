@@ -1,13 +1,13 @@
-/* global twentytwentyoneGetHexLum, jQuery */
+/* global trinityGetHexLum, jQuery */
 ( function() {
 	// Add listener for the "background_color" control.
 	wp.customize( 'background_color', function( value ) {
 		value.bind( function( to ) {
-			var lum = twentytwentyoneGetHexLum( to ),
+			var lum = trinityGetHexLum( to ),
 				isDark = 127 > lum,
 				textColor = ! isDark ? 'var(--global--color-dark-gray)' : 'var(--global--color-light-gray)',
 				tableColor = ! isDark ? 'var(--global--color-light-gray)' : 'var(--global--color-dark-gray)',
-				stylesheetID = 'twentytwentyone-customizer-inline-styles',
+				stylesheetID = 'trinity-customizer-inline-styles',
 				stylesheet,
 				styles;
 
@@ -39,7 +39,7 @@
 			styles = '';
 			// If the stylesheet doesn't exist, create it and append it to <head>.
 			if ( ! stylesheet.length ) {
-				jQuery( '#twenty-twenty-one-style-inline-css' ).after( '<style id="' + stylesheetID + '"></style>' );
+				jQuery( '#trinity-style-inline-css' ).after( '<style id="' + stylesheetID + '"></style>' );
 				stylesheet = jQuery( '#' + stylesheetID );
 			}
 

@@ -1,6 +1,9 @@
 <?php
+
 /**
- * Show the excerpt.
+ * Template Name: Landing Page
+ *
+ * The template for displaying the landing page.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,4 +12,10 @@
  * @since Trinity 1.0
  */
 
-the_excerpt();
+get_header();
+
+?>
+
+<p>Hello, world.</p>
+
+<?php get_footer(); ?>

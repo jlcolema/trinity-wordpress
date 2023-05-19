@@ -7,31 +7,50 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
+ * @subpackage Trinity
+ * @since Trinity 1.0
  */
 
 ?>
+
 <!doctype html>
-<html <?php language_attributes(); ?> <?php twentytwentyone_the_html_classes(); ?>>
+
+<html <?php language_attributes(); ?> <?php trinity_the_html_classes(); ?>>
+
 <head>
+
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content">
-		<?php
-		/* translators: Hidden accessibility text. */
-		esc_html_e( 'Skip to content', 'twentytwentyone' );
-		?>
-	</a>
 
-	<?php get_template_part( 'template-parts/header/site-header' ); ?>
+	<a href="#main" class="skip-link screen-reader-only"><?php esc_html_e( 'Skip to main content.', 'trinity' ); ?></a>
 
-	<div id="content" class="site-content">
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main">
+	<header role="banner" id="header" class="header">
+
+		<div class="wrap header__wrap">
+
+			<div class="logo" aria-label="Home">
+
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-current="page" data-current="true" class="logo__link">
+
+					<img src="/assets/img/logo.png" srcset="/assets/img/logo.png, /assets/img/logo@2x.png 2x" width="215" height="50" alt="<?php bloginfo( 'name' ); ?>" class="logo__image" />
+
+				</a>
+
+			</div>
+
+			<p class="call-us">Give us a call! <a href="tel:1-866-535-8807" class="call-us__link">866-535-8807</a></p>
+
+		</div>
+
+	</header>
+
+	<main role="main" id="main" class="main">
+
+		<div class="wrap main__wrap">

@@ -7,11 +7,11 @@
 /**
  * Add max-width & max-height to <iframe> elements, depending on their width & height props.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  *
  * @return {void}
  */
-function twentytwentyoneResponsiveEmbeds() {
+function trinityResponsiveEmbeds() {
 	var proportion, parentWidth;
 
 	// Loop iframe elements.
@@ -30,7 +30,7 @@ function twentytwentyoneResponsiveEmbeds() {
 }
 
 // Run on initial load.
-twentytwentyoneResponsiveEmbeds();
+trinityResponsiveEmbeds();
 
 // Run on resize.
-window.onresize = twentytwentyoneResponsiveEmbeds;
+window.onresize = trinityResponsiveEmbeds;

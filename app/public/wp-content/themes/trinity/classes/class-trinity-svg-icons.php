@@ -3,8 +3,8 @@
  * SVG Icons class
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
+ * @subpackage Trinity
+ * @since Trinity 1.0
  */
 
 /**
@@ -17,14 +17,14 @@
  * All icons are assumed to have equal width and height, hence the option
  * to only specify a `$size` parameter in the svg methods.
  *
- * @since Twenty Twenty-One 1.0
+ * @since Trinity 1.0
  */
-class Twenty_Twenty_One_SVG_Icons {
+class Trinity_SVG_Icons {
 
 	/**
 	 * User Interface icons – svg sources.
 	 *
-	 * @since Twenty Twenty-One 1.0
+	 * @since Trinity 1.0
 	 *
 	 * @var array
 	 */
@@ -40,7 +40,7 @@ class Twenty_Twenty_One_SVG_Icons {
 	/**
 	 * Social Icons – svg sources.
 	 *
-	 * @since Twenty Twenty-One 1.0
+	 * @since Trinity 1.0
 	 *
 	 * @var array
 	 */
@@ -91,7 +91,7 @@ class Twenty_Twenty_One_SVG_Icons {
 	 * By default, each Icon ID is matched against a .com TLD. To override this behavior,
 	 * specify all the domains it covers (including the .com TLD too, if applicable).
 	 *
-	 * @since Twenty Twenty-One 1.0
+	 * @since Trinity 1.0
 	 *
 	 * @var array
 	 */
@@ -156,7 +156,7 @@ class Twenty_Twenty_One_SVG_Icons {
 	 *
 	 * @static
 	 *
-	 * @since Twenty Twenty-One 1.0
+	 * @since Trinity 1.0
 	 *
 	 * @param string $group The icon group.
 	 * @param string $icon  The icon.
@@ -174,16 +174,16 @@ class Twenty_Twenty_One_SVG_Icons {
 		}
 
 		/**
-		 * Filters Twenty Twenty-Ones's array of icons.
+		 * Filters Trinitys's array of icons.
 		 *
 		 * The dynamic portion of the hook name, `$group`, refers to
 		 * the name of the group of icons, either "ui" or "social".
 		 *
-		 * @since Twenty Twenty-One 1.0
+		 * @since Trinity 1.0
 		 *
 		 * @param array $arr Array of icons.
 		 */
-		$arr = apply_filters( "twenty_twenty_one_svg_icons_{$group}", $arr );
+		$arr = apply_filters( "trinity_svg_icons_{$group}", $arr );
 
 		$svg = '';
 		if ( array_key_exists( $icon, $arr ) ) {
@@ -201,7 +201,7 @@ class Twenty_Twenty_One_SVG_Icons {
 	 *
 	 * @static
 	 *
-	 * @since Twenty Twenty-One 1.0
+	 * @since Trinity 1.0
 	 *
 	 * @param string $uri  Social link.
 	 * @param int    $size The icon-size in pixels.
@@ -214,25 +214,25 @@ class Twenty_Twenty_One_SVG_Icons {
 			$regex_map = array();
 
 			/**
-			 * Filters Twenty Twenty-Ones's array of domain mappings for social icons.
+			 * Filters Trinitys's array of domain mappings for social icons.
 			 *
 			 * By default, each Icon ID is matched against a .com TLD. To override this behavior,
 			 * specify all the domains it covers (including the .com TLD too, if applicable).
 			 *
-			 * @since Twenty Twenty-One 1.0
+			 * @since Trinity 1.0
 			 *
 			 * @param array $social_icons_map Array of default social icons.
 			 */
-			$map = apply_filters( 'twenty_twenty_one_social_icons_map', self::$social_icons_map );
+			$map = apply_filters( 'trinity_social_icons_map', self::$social_icons_map );
 
 			/**
-			 * Filters Twenty Twenty-One's array of social icons.
+			 * Filters Trinity's array of social icons.
 			 *
-			 * @since Twenty Twenty-One 1.0
+			 * @since Trinity 1.0
 			 *
 			 * @param array $social_icons Array of default social icons.
 			 */
-			$social_icons = apply_filters( 'twenty_twenty_one_svg_icons_social', self::$social_icons );
+			$social_icons = apply_filters( 'trinity_svg_icons_social', self::$social_icons );
 
 			foreach ( array_keys( $social_icons ) as $icon ) {
 				$domains            = array_key_exists( $icon, $map ) ? $map[ $icon ] : array( sprintf( '%s.com', $icon ) );
