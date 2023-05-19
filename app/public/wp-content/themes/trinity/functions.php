@@ -145,9 +145,6 @@ function trinity_non_latin_languages() {
 }
 add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
 
-// SVG Icons class.
-require get_template_directory() . '/classes/class-trinity-svg-icons.php';
-
 // Custom color classes.
 require get_template_directory() . '/classes/class-trinity-custom-colors.php';
 new Trinity_Custom_Colors();
