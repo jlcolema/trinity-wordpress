@@ -149,25 +149,6 @@ add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
- * Enqueue scripts for the customizer.
- *
- * @since Trinity 1.0
- *
- * @return void
- */
-function trinity_customize_controls_enqueue_scripts() {
-
-	wp_enqueue_script(
-		'trinity-customize-helpers',
-		get_theme_file_uri( '/assets/js/customize-helpers.js' ),
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-}
-add_action( 'customize_controls_enqueue_scripts', 'trinity_customize_controls_enqueue_scripts' );
-
-/**
  * Calculate classes for the main <html> element.
  *
  * @since Trinity 1.0
