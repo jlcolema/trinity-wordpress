@@ -118,12 +118,6 @@ function trinity_scripts() {
 	// Use the standard stylesheet.
 	wp_enqueue_style( 'trinity-style', get_template_directory_uri() . '/assets/css/styles.css', array(), wp_get_theme()->get( 'Version' ) );
 
-	// RTL styles.
-	wp_style_add_data( 'trinity-style', 'rtl', 'replace' );
-
-	// Print styles.
-	wp_enqueue_style( 'trinity-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
-
 }
 add_action( 'wp_enqueue_scripts', 'trinity_scripts' );
 
