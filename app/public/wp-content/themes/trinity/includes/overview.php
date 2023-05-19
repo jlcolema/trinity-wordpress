@@ -24,29 +24,21 @@
 
 		<?php endif; ?>
 
-		<div class="overview__details">
+		<?php
 
-			<p>In a <b>free</b> consultation discussion with our CEO, <a href="#">Craig Smith</a>, you will receive a live website review, complete with our toolsets, to help you understand what digital growth opportunities exist in your business.</p>
+			$details = get_field('details');
 
-			<p>Within your strategy session you will receive:</p>
+		?>
 
-			<ul>
+		<?php if ( $details ) : ?>
 
-				<li>An expert analysis of your eCommerce store or website.</li>
+			<div class="overview__details">
 
-				<li>Diagnostic SEO Crawl Report</li>
+				<?php echo $details[ 'details_content' ]; ?>
 
-				<li>Site Spead & Performance Assessment</li>
+			</div>
 
-				<li>User Experience Review and Recommendations</li>
-
-				<li>Email &amp; Marketing Automation Review</li>
-
-				<li>No Obligations &amp; 100% Free</li>
-
-			</ul>
-
-		</div>
+		<?php endif; ?>
 
 	</div>
 
