@@ -15,7 +15,7 @@
 
 <!doctype html>
 
-<html <?php language_attributes(); ?> <?php trinity_the_html_classes(); ?>>
+<html <?php language_attributes(); ?>>
 
 <head>
 
