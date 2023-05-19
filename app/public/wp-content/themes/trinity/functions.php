@@ -145,10 +145,6 @@ function trinity_non_latin_languages() {
 }
 add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
 
-// Custom color classes.
-require get_template_directory() . '/classes/class-trinity-custom-colors.php';
-new Trinity_Custom_Colors();
-
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
 
