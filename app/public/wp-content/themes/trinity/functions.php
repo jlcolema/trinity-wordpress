@@ -147,17 +147,3 @@ add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
 
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
-
-if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
-	/**
-	 * Retrieves the list item separator based on the locale.
-	 *
-	 * Added for backward compatibility to support pre-6.0.0 WordPress versions.
-	 *
-	 * @since 6.0.0
-	 */
-	function wp_get_list_item_separator() {
-		/* translators: Used between list items, there is a space after the comma. */
-		return __( ', ', 'trinity' );
-	}
-endif;
