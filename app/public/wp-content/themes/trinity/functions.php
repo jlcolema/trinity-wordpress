@@ -148,9 +148,6 @@ add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
 
-// Custom template tags for the theme.
-require get_template_directory() . '/inc/template-tags.php';
-
 // Customizer additions.
 require get_template_directory() . '/classes/class-trinity-customize.php';
 new Trinity_Customize();
