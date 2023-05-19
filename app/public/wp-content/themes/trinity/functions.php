@@ -130,20 +130,6 @@ function trinity_scripts() {
 add_action( 'wp_enqueue_scripts', 'trinity_scripts' );
 
 /**
- * Enqueue block editor script.
- *
- * @since Trinity 1.0
- *
- * @return void
- */
-function trinity_block_editor_script() {
-
-	wp_enqueue_script( 'trinity-editor', get_theme_file_uri( '/assets/js/editor.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
-}
-
-add_action( 'enqueue_block_editor_assets', 'trinity_block_editor_script' );
-
-/**
  * Fix skip link focus in IE11.
  *
  * This does not enqueue the script because it is tiny and because it is only for IE11,
