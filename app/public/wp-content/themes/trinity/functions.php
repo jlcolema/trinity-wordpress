@@ -148,24 +148,6 @@ add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
 
-/**
- * Add "is-IE" class to body if the user is on Internet Explorer.
- *
- * @since Trinity 1.0
- *
- * @return void
- */
-function trinity_add_ie_class() {
-	?>
-	<script>
-	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
-		document.body.classList.add( 'is-IE' );
-	}
-	</script>
-	<?php
-}
-add_action( 'wp_footer', 'trinity_add_ie_class' );
-
 if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 	/**
 	 * Retrieves the list item separator based on the locale.
