@@ -16,6 +16,19 @@ get_header();
 
 ?>
 
-<p>Hello, world.</p>
+	<?php
+		// Get the Over section.
+		get_template_part( 'includes/overview' );
+	?>
+
+	<?php
+		// Get the Together section.
+		get_template_part( 'includes/together' );
+	?>
+
+	<?php
+		// Get the Trusted section.
+		get_template_part( 'includes/trusted' );
+	?>
 
 <?php get_footer(); ?>
