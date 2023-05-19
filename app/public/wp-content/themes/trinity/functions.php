@@ -12,9 +12,7 @@
  * Table of Contents:
  *
  * 01. General Setup
- * 02. Required Files
- * 03. Register Styles
- * 04. Register Scripts
+ * 02. Enqueue Scripts and Styles
  * 05. Register Menus
  * 06. Custom Logo
  * 07. WP Body Open
@@ -96,7 +94,7 @@ if ( ! function_exists( 'trinity_setup' ) ) {
 
 		// Add support for editor styles.
 		add_theme_support( 'editor-styles' );
-		$editor_stylesheet_path = './assets/css/style-editor.css';
+		$editor_stylesheet_path = './assets/css/editor.css';
 
 		// Enqueue editor styles.
 		add_editor_style( $editor_stylesheet_path );
@@ -106,23 +104,21 @@ if ( ! function_exists( 'trinity_setup' ) ) {
 add_action( 'after_setup_theme', 'trinity_setup' );
 
 /**
+ * 02. Enqueue Scripts and Styles
+ *
  * Enqueue scripts and styles.
  *
  * @since Trinity 1.0
  *
  * @return void
  */
+
 function trinity_scripts() {
-	// Note, the is_IE global variable is defined by WordPress and is used
-	// to detect if the current browser is internet explorer.
-	global $is_IE, $wp_scripts;
-	if ( $is_IE ) {
-		// If IE 11 or below, use a flattened stylesheet with static values replacing CSS Variables.
-		wp_enqueue_style( 'trinity-style', get_template_directory_uri() . '/assets/css/ie.css', array(), wp_get_theme()->get( 'Version' ) );
-	} else {
-		// If not IE, use the standard stylesheet.
-		wp_enqueue_style( 'trinity-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
-	}
+
+	global $wp_scripts;
+
+	// Use the standard stylesheet.
+	wp_enqueue_style( 'trinity-style', get_template_directory_uri() . '/assets/css/styles.css', array(), wp_get_theme()->get( 'Version' ) );
 
 	// RTL styles.
 	wp_style_add_data( 'trinity-style', 'rtl', 'replace' );
@@ -130,57 +126,6 @@ function trinity_scripts() {
 	// Print styles.
 	wp_enqueue_style( 'trinity-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
 
-	// Threaded comment reply styles.
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-
-	// Register the IE11 polyfill file.
-	wp_register_script(
-		'trinity-ie11-polyfills-asset',
-		get_template_directory_uri() . '/assets/js/polyfills.js',
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-
-	// Register the IE11 polyfill loader.
-	wp_register_script(
-		'trinity-ie11-polyfills',
-		null,
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-	wp_add_inline_script(
-		'trinity-ie11-polyfills',
-		wp_get_script_polyfill(
-			$wp_scripts,
-			array(
-				'Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach' => 'trinity-ie11-polyfills-asset',
-			)
-		)
-	);
-
-	// Main navigation scripts.
-	if ( has_nav_menu( 'primary' ) ) {
-		wp_enqueue_script(
-			'trinity-primary-navigation-script',
-			get_template_directory_uri() . '/assets/js/primary-navigation.js',
-			array( 'trinity-ie11-polyfills' ),
-			wp_get_theme()->get( 'Version' ),
-			true
-		);
-	}
-
-	// Responsive embeds script.
-	wp_enqueue_script(
-		'trinity-responsive-embeds-script',
-		get_template_directory_uri() . '/assets/js/responsive-embeds.js',
-		array( 'trinity-ie11-polyfills' ),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
 }
 add_action( 'wp_enqueue_scripts', 'trinity_scripts' );
 
