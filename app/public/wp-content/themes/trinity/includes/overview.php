@@ -2,13 +2,27 @@
 
 	<div class="inner-wrap overview__inner-wrap">
 
-		<header class="section__header">
+		<?php
 
-			<h1 class="section__heading">Gain new insight to grow digital revenues faster.</h1>
+			$hero = get_field('hero');
 
-			<p class="section__description">Sign up for your <b>free</b> Website Strategy Session ($795 value)</p>
+		?>
 
-		</header>
+		<?php if ( $hero ) : ?>
+
+			<header class="section__header">
+
+				<h1 class="section__heading"><?php echo $hero[ 'hero_heading' ]; ?></h1>
+
+				<div class="section__description">
+
+					<?php echo $hero[ 'hero_description' ]; ?>
+
+				</div>
+
+			</header>
+
+		<?php endif; ?>
 
 		<div class="overview__details">
 
