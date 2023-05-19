@@ -132,13 +132,13 @@ gulp.task('fonts', function() {
 gulp.task('watch', function() {
 
 	browsersync.init({
-		proxy: "https://wordpress.trinity.local"
-		// host: "wordpress.trinity.local"
-		// server: {
-			// baseDir: "dist/html",
-			// directory: false
-		// },
-		// open: "local",
+		host: 'wordpress.trinity.local',
+		port: 3000,
+		proxy: {
+			target: "https://wordpress.trinity.local"
+		},
+		https: true,
+		open: 'external'
 		// browser: 'microsoft edge'
 	});
 
