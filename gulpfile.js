@@ -26,7 +26,7 @@ const browsersync = require('browser-sync');
 const basePaths = {
 	src: 'src/',
 	dist: 'app/public/wp-content/themes/trinity/',
-	assets: 'dist/public/wp-content/themes/trinity/assets/'
+	assets: 'app/public/wp-content/themes/trinity/assets/'
 };
 
 /* Sass
@@ -132,13 +132,13 @@ gulp.task('fonts', function() {
 gulp.task('watch', function() {
 
 	browsersync.init({
-		proxy: "http://wordpress.trinity.local",
-		host: "wordpress.trinity.local",
-		server: {
+		proxy: "https://wordpress.trinity.local"
+		// host: "wordpress.trinity.local"
+		// server: {
 			// baseDir: "dist/html",
 			// directory: false
-		},
-		open: "local",
+		// },
+		// open: "local",
 		// browser: 'microsoft edge'
 	});
 
