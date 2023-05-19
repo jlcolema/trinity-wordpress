@@ -149,32 +149,6 @@ add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
- * Enqueue scripts for the customizer preview.
- *
- * @since Trinity 1.0
- *
- * @return void
- */
-function trinity_customize_preview_init() {
-	wp_enqueue_script(
-		'trinity-customize-helpers',
-		get_theme_file_uri( '/assets/js/customize-helpers.js' ),
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-
-	wp_enqueue_script(
-		'trinity-customize-preview',
-		get_theme_file_uri( '/assets/js/customize-preview.js' ),
-		array( 'customize-preview', 'customize-selective-refresh', 'jquery', 'trinity-customize-helpers' ),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-}
-add_action( 'customize_preview_init', 'trinity_customize_preview_init' );
-
-/**
  * Enqueue scripts for the customizer.
  *
  * @since Trinity 1.0
