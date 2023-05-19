@@ -44,65 +44,16 @@
 
 	<div class="overview__form">
 
-		<form name="strategy" method="post" data-netlify="true" class="form" aria-label="Request a Session">
-
-			<legend class="form__heading"><b>Free</b> Website Strategy Session</legend>
-
-			<fieldset class="form__fieldset">
-
-				<ol class="form__list">
-
-					<li class="form__item">
-
-						<label for="first-name" class="form__label">First Name</label>
-
-						<input type="text" name="first-name" value="" id="first-name" class="form__input" />
-
-					</li>
-
-					<li class="form__item">
-
-						<label for="last-name" class="form__label">Last Name</label>
-
-						<input type="text" name="last-name" value="" id="last-name" class="form__input" />
-
-					</li>
-
-					<li class="form__item">
-
-						<label for="website" class="form__label">Website</label>
-
-						<input type="text" name="website" value="" id="website" class="form__input" />
-
-					</li>
-
-					<li class="form__item">
-
-						<label for="email" class="form__label">Email *</label>
-
-						<input type="email" name="email" value="" id="email" class="form__input" required />
-
-					</li>
-
-					<li class="form__item">
-
-						<label for="phone-number" class="form__label">Phone Number</label>
-
-						<input type="tel" name="phone-number" value="" id="phone-number" class="form__input" />
-
-					</li>
-
-				</ol>
-
-				<div class="form__button">
-
-					<button type="submit">Request Session</button>
-
-				</fieldset>
-
-			</fieldset>
-
-		</form>
+		<?php gravity_form(
+			1, // $id_or_title
+			false, // $display_title
+			true, // $display_description
+			false, // $display_inactive
+			'', // $field_values
+			false, // $ajax
+			0, // $tabindex
+			true // $echo
+		); ?>
 
 	</div>
 

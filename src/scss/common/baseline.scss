@@ -344,7 +344,8 @@ form {}
 			&[type="search"],
 			&[type="email"],
 			&[type="tel"],
-			&[type="password"] {
+			&[type="password"],
+			&[type="url"] {
 
 				// Override general styles applied to browsers in iOS.
 
