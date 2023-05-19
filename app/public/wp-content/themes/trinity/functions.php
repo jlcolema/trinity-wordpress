@@ -148,9 +148,6 @@ add_action( 'wp_enqueue_scripts', 'trinity_non_latin_languages' );
 // Enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
 
-// Block Styles.
-require get_template_directory() . '/inc/block-styles.php';
-
 // Dark Mode.
 require_once get_template_directory() . '/classes/class-trinity-dark-mode.php';
 new Trinity_Dark_Mode();
