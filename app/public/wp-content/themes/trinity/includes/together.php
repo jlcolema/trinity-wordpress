@@ -1,55 +1,75 @@
 <section class="section section__together">
 
-	<header class="section__header">
+	<?php
 
-		<h2 class="section__heading">We make working together easy.</h2>
+		$together = get_field('together');
 
-	</header>
+	?>
 
-	<ol class="together__list">
+	<?php if ( $together ) : ?>
 
-		<li class="together__item">
+		<header class="section__header">
 
-			<img src="/media/vid-chat.png" srcset="/media/vid-chat.png, /media/vid-chat@2x.png 2x" width="424" height="139" alt="An illustration showing an icon that includes a speech bubble and a play button." loading="lazy" class="together__image" />
+			<h2 class="section__heading"><?php echo $together['together_heading']; ?></h2>
 
-			<div class="together__detail">
+		</header>
 
-				<h3 class="together__heading">30 Minute Video Conversation</h3>
+		<?php if ( have_rows( 'together' ) ) : ?>
 
-				<p class="together__description">Get started with a free consultation to help us understand where our team can best help you build and grow your online business.</p>
+			<?php while ( have_rows( 'together' ) ) : ?>
 
-			</div>
+				<?php the_row(); ?>
 
-		</li>
+				<?php if ( have_rows( 'together_steps' ) ) : ?>
 
-		<li class="together__item">
+					<ol class="together__list">
 
-			<img src="/media/roadmap.png" srcset="/media/roadmap.png, /media/roadmap@2x.png 2x" width="424" height="139" alt="An illustration showing repeating squiggly lines." loading="lazy" class="together__image" />
+						<?php while ( have_rows( 'together_steps' ) ) : ?>
 
-			<div class="together__detail">
+							<?php the_row(); ?>
 
-				<h3 class="together__heading">Diagnostic Roadmap</h3>
+							<li class="together__item">
 
-				<p class="together__description">Within a week we'll diagnose your biggest opportunities and build a custom roadmap to optimize your ecommerce experience.</p>
+								<?php
 
-			</div>
+									$step_image = get_sub_field('step_image');
 
-		</li>
+									// Attributes
+									$url = $step_image['url'];
+									$alt = $step_image['alt'];
 
-		<li class="together__item">
+									// Size Options
+									$small = 'step-image-small'; // 424x139
+									$large = 'step-image-large'; // 848x278
 
-			<img src="/media/growth.png" srcset="/media/growth.png, /media/growth@2x.png 2x" width="424" height="139" alt="An illustration showing a group of five arrow that grow taller from left to right." loading="lazy" class="together__image" />
+									// Sizes to Use
+									$image_small = $step_image['sizes'][$small];
+									$image_large = $step_image['sizes'][$large];
 
-			<div class="together__detail">
+								?>
 
-				<h3 class="together__heading">Growth Services</h3>
+								<img src="<?php echo esc_url($image_small); ?>" srcset="<?php echo esc_url($image_small); ?>, <?php echo esc_url($image_large); ?> 2x" width="424" height="139" alt="<?php echo esc_attr($alt); ?>" loading="lazy" class="together__image" />
 
-				<p class="together__description">Our team will start immediately taking action to make improvements and deliver a brand experience that drives lifetime value.</p>
+								<div class="together__detail">
 
-			</div>
+									<h3 class="together__heading"><?php the_sub_field( 'step_subheading' ); ?></h3>
 
-		</li>
+									<p class="together__description"><?php the_sub_field( 'step_description' ); ?></p>
 
-	</ol>
+								</div>
+
+							</li>
+
+						<?php endwhile; ?>
+
+					</ol>
+
+				<?php endif; ?>
+
+			<?php endwhile; ?>
+
+		<?php endif; ?>
+
+	<?php endif; ?>
 
 </section>
