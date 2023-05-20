@@ -52,6 +52,10 @@ if ( ! function_exists( 'trinity_setup' ) ) {
 		 */
 		add_theme_support( 'title-tag' );
 
+		// Step Images
+		add_image_size( 'step-image-small', 424, 139, true );
+		add_image_size( 'step-image-large', 848, 278, true );
+
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
