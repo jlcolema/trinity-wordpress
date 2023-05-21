@@ -56,7 +56,11 @@
 
 			</div>
 
-			<p class="call-us">Give us a call! <a href="tel:1-866-535-8807" class="call-us__link">866-535-8807</a></p>
+			<?php if ( get_field( 'contact_information_phone_number', 'option' ) ) : ?>
+
+				<p class="call-us">Give us a call! <a href="tel:1-<?php the_field( 'contact_information_phone_number', 'option' ); ?>" class="call-us__link"><?php the_field( 'contact_information_phone_number', 'option' ); ?></a></p>
+
+			<?php endif; ?>
 
 		</div>
 
