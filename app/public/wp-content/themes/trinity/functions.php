@@ -113,13 +113,19 @@ add_action( 'after_setup_theme', 'trinity_setup' );
  * @return void
  */
 
-function trinity_scripts() {
+function trinity_scripts_and_styles() {
 
 	// Use the standard stylesheet.
-	wp_enqueue_style( 'trinity-style', get_template_directory_uri() . '/assets/css/styles.css', array(), wp_get_theme()->get( 'Version' ) );
+	// Structure: wp_queue_style( string $handle, string $src = '', string[] $deps = array(), string|bool|null $ver = false, string $media = 'all' );
+	// wp_enqueue_style( 'trinity-styles', get_template_directory_uri() . '/assets/css/styles.css', array(), wp_get_theme()->get( 'Version' ) );
+
+	// Scripts
+	// Structure: wp_enqueue_script( string $handle, string $src = '', string[] $deps = array(), string|bool|null $ver = false, bool $in_footer = false );
+	// TODO: Add `defer` after URL, for example /assets/js/scripts.js" defer>
+	// wp_enqueue_script( 'trinity-scripts', get_template_directory_uri() . '/assets/js/scripts.js', array(), wp_get_theme()->get( 'Version' ), true );
 
 }
-add_action( 'wp_enqueue_scripts', 'trinity_scripts' );
+add_action( 'wp_enqueue_scripts', 'trinity_scripts_and_styles' );
 
 /**
  * 03. Advanced Custom Fields
@@ -164,3 +170,46 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 	));
 
 }
+
+/**
+ * 04. Disable and/or Remove Default Features
+ *
+ * Notes...
+ *
+ * @since Trinity 1.0
+ *
+ * @return void
+ */
+
+// Dequeue Styles
+function trinity_dequeue_styles() {
+
+	wp_dequeue_style('wp-block-library');
+	wp_dequeue_style('classic-theme-styles');
+	wp_dequeue_style('global-styles');
+
+	wp_dequeue_script('wp-polyfill');
+
+}
+add_action( 'wp_enqueue_scripts', 'trinity_dequeue_styles', 100);
+
+// Deregister Features
+function trinity_deregister_features() {
+	wp_deregister_script( 'wp-embed' );
+	wp_deregister_script( 'wp-polyfill' );
+	wp_deregister_script( 'regenerator-runtime' );
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+	global $wp_widget_factory;
+	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+
+	remove_action( 'wp_head', 'wp_generator' );
+	remove_action( 'wp_head', 'wlwmanifest_link' );
+	remove_action( 'wp_head', 'rsd_link' );
+	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+	remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+	remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+	remove_action( 'wp_head', 'wp_resource_hints', 2 );
+}
+add_action( 'init', 'trinity_deregister_features' );
