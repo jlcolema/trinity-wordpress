@@ -14,6 +14,8 @@
  * 01. General Setup
  * 02. Enqueue Scripts and Styles
  * 03. Advanced Custom Fields
+ * 04. Disable and/or Remove Default Features
+ * 05. Register Service Worker
  */
 
 if ( ! function_exists( 'trinity_setup' ) ) {
@@ -213,3 +215,13 @@ function trinity_deregister_features() {
 	remove_action( 'wp_head', 'wp_resource_hints', 2 );
 }
 add_action( 'init', 'trinity_deregister_features' );
+
+/**
+ * 05. Register Service Worker
+ *
+ * Notes...
+ *
+ * @since Trinity 1.0
+ *
+ * @return void
+ */
