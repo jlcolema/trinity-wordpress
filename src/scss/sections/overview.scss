@@ -223,6 +223,10 @@
 
 		}
 
+			.gform_validation_errors {
+				display: none; // Temporarily hidden.
+			}
+
 			.form__heading,
 			.gform_description {
 
@@ -291,6 +295,23 @@
 						.form__label {}
 
 						.form__input {}
+
+					.gfield_error {
+
+						.gfield_label {
+							color: var(--color-branding-accent);
+						}
+
+						input {
+							border-color: var(--color-branding-accent);
+						}
+
+						.gfield_validation_message {
+							margin: 0.375rem 0 0 0;
+							color: var(--color-branding-accent);
+						}
+
+					}
 
 				.form__button,
 				.gform_footer {
