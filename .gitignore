@@ -47,8 +47,13 @@ logs/
 
 *.code-workspace
 .vscode/
+*.nova
 package-lock.json
 
 # Ignore OS generated files
 
 .DS_Store
+
+# Miscellaneous
+
+src/db/
